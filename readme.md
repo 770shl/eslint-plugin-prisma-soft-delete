@@ -1,8 +1,8 @@
 # Introduction
-This eslint plugin is used to force developers to use { deleted: null } filter in where query.
+This eslint plugin is used to force developers to use { deletedAt: null } filter in where query.
 
 # Motivation
-Prisma does have easy support for implementing soft delete but it is not as neat as other ORMs out there. You can follow [this guide](https://www.prisma.io/docs/concepts/components/prisma-client/middleware/soft-delete-middleware) to implement soft-delete using Prisma. The problem is you have to add `{ deleted: null }` filter explicitly when querying for data. It is very easy to make mistakes for new teammates if it goes without review in big teams. Hence this plugin.
+Prisma does have easy support for implementing soft delete but it is not as neat as other ORMs out there. You can follow [this guide](https://www.prisma.io/docs/concepts/components/prisma-client/middleware/soft-delete-middleware) to implement soft-delete using Prisma. The problem is you have to add `{ deletedAt: null }` filter explicitly when querying for data. It is very easy to make mistakes for new teammates if it goes without review in big teams. Hence this plugin.
 
 # Installation
 ## npm
@@ -53,7 +53,7 @@ const user = await this.prisma.user.findFirst({
 
 // good
 const user = await this.prisma.user.findFirst({
-    where: { deleted: null, id: 1 },
+    where: { deletedAt: null, id: 1 },
 });
 ```
 
